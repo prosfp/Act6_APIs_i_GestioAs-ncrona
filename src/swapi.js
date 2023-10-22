@@ -5,3 +5,10 @@ export function getMovieCount() {
     .then((res) => res.json())
     .then((json) => json.count);
 }
+
+// Aneu afegint les functions a exportar aquí
+const swapi = {
+  getMovieCount,
+};
+
+export default swapi;

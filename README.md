@@ -1,4 +1,4 @@
-# StarWars API SWAPI Workspace
+# StarWars API - Part 1
 
 Aquest projecte te la finalitat de començar a treballar amb APIs i fer peticions a un servidor extern. Haurem de fer servir la lògica asincrònica per tal de fer les peticions i mostrar la informació a l'usuari. D'altra banda necessitarem tècniques de treball amb objectes, arrays i en general els seus mètodes per tal de poder filtrar la informació que ens retorna el servidor.
 
@@ -37,6 +37,7 @@ Farem servir la carpeta `src` per desar tot el codi del nostre projecte. Aquesta
 - `index.js`: L'arxiu JavaScript que s'executa al carregar la pàgina.
 - `swapi.js`: L'arxiu JavaScript que conté la lògica per fer les peticions a l'API.
 - `styles.css`: L'arxiu CSS que conté l'estil de la pàgina.
+- `swapi.test.js`: Els testos son orientatius i poden requerir de canvis (s'han generat automàticament) però us recomanem que els feu servir per comprovar que el vostre codi funciona correctament.
 
 ### Configuration Files
 
@@ -91,7 +92,7 @@ S'hi poden realitzar consultes per verificar les dades obtingudes en el desenvol
 
 # :rocket: Comencem!
 
-## 1a Part - Peticions a l'API
+## Peticions a l'API
 
 En aquesta part haureu de crear una sèrie les funcions asíncrones que es detallen a continuació.
 
@@ -298,3 +299,5 @@ Implementar una funció anomenada `getMovieCharactersAndHomeworlds(id: string)` 
 # Enhorabona!
 
 En la propera pràctica practicarem amb el DOM per mostrar totes aquestes dades a l'usuari amb una interfície gràfica com aquesta:
+
+![StarWars API](https://imgur.com/yRyyayi.png)

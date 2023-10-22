@@ -1,11 +1,11 @@
-import swapi, { Movie } from '../src/swapi';
+import swapi from '../src/swapi';
 
 describe('swapi', () => {
   describe('getMovieCount', () => {
     it('should return the number of movies', async () => {
       const count = await swapi.getMovieCount();
       expect(count).toBeGreaterThan(0);
-    });
+    }, 15000); // Podeu variar el temps d'espera pel retorn de la promise
   });
 
   describe('listMovies', () => {

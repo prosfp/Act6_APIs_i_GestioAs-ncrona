@@ -5,7 +5,10 @@
   "type": "module",
   "main": "src/index.html",
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
   },
   "browserslist": [
     "last 2 versions",
@@ -22,8 +25,11 @@
   "author": "Pablo - pablo.ros@cirivanum.cat",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/user-event": "^13.2.1",
+    "babel-jest": "^27.5.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "jest": "^29.7.0",
