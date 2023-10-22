@@ -136,7 +136,7 @@ Implementar una funció anomenada `listMovies()` que retorni una promesa que es 
 
 **Exemple de retorn esperat un cop resolta la promesa:**
 
-```json
+```javascript
 [
  {
  "name": "A New Hope",
