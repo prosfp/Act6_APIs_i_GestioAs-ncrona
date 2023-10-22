@@ -214,7 +214,7 @@ Implementar una funció `getMovieInfo(id: string)` que donat un id d'una pel·l�
 
 **Exemple de retorn esperat un cop resolta la promesa:**
 
-```json
+```javascript
 {
  characters: [
  "http://swapi.dev/api/people/1/",
@@ -235,8 +235,8 @@ Reescriure la funció `getCharacterName(URL: string)` que donada una url d'un pe
 
 **Exemple de retorn esperat un cop resolta la promesa:**
 
-```json
-"Luke Skywalker"
+```javascript
+'Luke Skywalker';
 ```
 
 #### Exercici 5.3
@@ -248,7 +248,7 @@ Implementar una funció `getMovieCharacters(id: string)` que donat un id d'una p
 - Heu d’utilitzar la funció `getCharacterName`.
 - Aquí incorporem un nou concepte, el de `Promise.All`. Aquest ens permet executar un array de promeses i esperar a que totes es resolguin. Per exemple: tenim un array amb diferents API que ens retornen un valor. Volem executar totes les API i esperar a que totes es resolguin per poder retornar el resultat. En aquest cas farem servir `Promise.all`:
 
-```js
+```javascript
 const getValues = async () => {
   const values = await Promise.all([
     fetch('https://swapi.dev/api/people/1/'),
@@ -261,7 +261,7 @@ const getValues = async () => {
 
 **Exemple de retorn esperat un cop resolta la promesa:**
 
-```json
+```javascript
 {
   "name": "A New Hope",
   "episodeID": 4,
