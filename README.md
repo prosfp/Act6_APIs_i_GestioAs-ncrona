@@ -154,27 +154,27 @@ Implementar una funció anomenada `listMoviesSorted()` que retorna una promesa q
 
 **Exemple de retorn esperat un cop resolta la promesa:**
 
-```json
+```javascript
 [
   {
-    "name": "A New Hope",
-    "director": "George Lucas",
-    "release": "1977-05-25",
-    "episodeID": 4
+    name: 'A New Hope',
+    director: 'George Lucas',
+    release: '1977-05-25',
+    episodeID: 4,
   },
   {
-    "name": "Return of the Jedi",
-    "director": "Richard Marquand",
-    "release": "1983-05-25",
-    "episodeID": 6
+    name: 'Return of the Jedi',
+    director: 'Richard Marquand',
+    release: '1983-05-25',
+    episodeID: 6,
   },
   {
-    "name": "The Phantom Menace",
-    "director": "George Lucas",
-    "release": "1999-05-19",
-    "episodeID": 1
-  }
-]
+    name: 'The Phantom Menace',
+    director: 'George Lucas',
+    release: '1999-05-19',
+    episodeID: 1,
+  },
+];
 ```
 
 ### Exercici 4
@@ -185,21 +185,21 @@ Implementar una funció anomenada `listEvenMoviesSorted()` que retorna una prome
 
 **Exemple de retorn esperat un cop resolta la promesa:**
 
-```json
+```javascript
 [
   {
-    "name": "Attack of the Clones",
-    "director": "George Lucas",
-    "release": "2002-05-16",
-    "episodeID": 2
+    name: 'Attack of the Clones',
+    director: 'George Lucas',
+    release: '2002-05-16',
+    episodeID: 2,
   },
   {
-    "name": "A New Hope",
-    "director": "George Lucas",
-    "release": "1977-05-25",
-    "episodeID": 4
-  }
-]
+    name: 'A New Hope',
+    director: 'George Lucas',
+    release: '1977-05-25',
+    episodeID: 4,
+  },
+];
 ```
 
 ### Exercici 5
