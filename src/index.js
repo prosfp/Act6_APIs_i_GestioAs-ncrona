@@ -1,9 +1,12 @@
-import { getPeople } from './swapi.js';
+import { getMovieCount } from './swapi.js';
+
+// Aquest index només serveix per provar algunes funcions si vols fer ús de la consola
+// per provar les funcions que has creat.
 
 async function main() {
   try {
-    const people = await getPeople();
-    console.log(people);
+    const numberOfMovies = await getMovieCount();
+    console.log(numberOfMovies);
   } catch (error) {
     console.error(error);
   }
