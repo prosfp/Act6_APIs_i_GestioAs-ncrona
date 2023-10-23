@@ -66,7 +66,7 @@ fetch('https://swapi.dev/api/people/')
   .then((data) => console.log(data));
 ```
 
-I al receptor de la promesa ho podríem gestionar a través d'**async/await**, per exemple:
+La promesa la podem gestionar a través d'**async/await**, per exemple:
 
 ```js
 const getPeople = async () => {
