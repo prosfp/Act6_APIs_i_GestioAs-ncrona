@@ -58,7 +58,9 @@ En aquesta pràctica treballarem amb la notació ES Modules. Això vol dir que e
 
 ### Fetch
 
-D'altra banda comencem a fer ús del Fetch. Hem après el concepte de les promeses i la manera moderna de gestionar-la a través d'async/await. El Fetch és una funció que ens permet fer peticions a un servidor extern de manera similar a les _Promise_. Ens retorna una promesa que es resol amb la resposta del servidor. Per exemple, si volem fer una petició a l'endpoint `https://swapi.dev/api/people/` farem:
+D'altra banda comencem a fer ús del Fetch. Hem après el concepte de les promeses i la manera moderna de gestionar-la a través **d'async/await**.
+
+El Fetch és en definitiva una petició (normalment un HTTP GET) que ens permet fer peticions a un servidor extern i esperar la resposta de manera similar a com ho farien les _Promise_. De fet ens retorna una promesa que es resol amb la resposta del servidor. Per exemple, si volem fer una petició a l'endpoint `https://swapi.dev/api/people/` farem:
 
 ```js
 fetch('https://swapi.dev/api/people/')
@@ -66,7 +68,7 @@ fetch('https://swapi.dev/api/people/')
   .then((data) => console.log(data));
 ```
 
-I al receptor de la promesa ho podríem gestionar a través d'**async/await**, per exemple:
+També podem gestionar gestionar el fetch a través d'**async/await**, per exemple:
 
 ```js
 const getPeople = async () => {
@@ -81,6 +83,8 @@ const getPeople = async () => {
 A l'exemple anterior podem veure que la resposta del servidor és un objecte JavaScript. Això és perquè el servidor ens retorna un JSON que ja sabem que és un format de dades que ens permet intercanviar informació entre diferents plataformes.
 
 Quin tipus tipus de dades retorna la funció **.json()**? Ho hauràs de tenir en compte a l'hora de gestionar la informació que ens retorna el servidor.
+
+El mètode .json() retorna una promesa que en cas d'èxit acabarà sent un parsing de la resposta a format text-JSON (https://developer.mozilla.org/en-US/docs/Web/API/Response/json)
 
 ### Ús de l'API
 
