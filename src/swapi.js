@@ -25,6 +25,16 @@ export function getMovieCount() {
 //   return data.count;
 // }
 
+// A vegades veureu també la lògica amb response.ok:
+// export async function getSwapiData(path) {
+//   const res = await fetch(`${BASE_URL}${path}`);
+//   if (res.ok) {
+//     const data = await res.json();
+//     return data;
+//   }
+//   throw new Error('Something went wrong');
+// }
+
 // Aneu afegint les functions a exportar aquí
 const swapi = {
   getMovieCount,
