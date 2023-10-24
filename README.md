@@ -78,7 +78,7 @@ const getPeople = async () => {
 };
 ```
 
-###JSON
+### JSON
 
 A l'exemple anterior podem veure que la resposta del servidor és un objecte JavaScript. Això és perquè el servidor ens retorna un JSON que ja sabem que és un format de dades que ens permet intercanviar informació entre diferents plataformes.
 
