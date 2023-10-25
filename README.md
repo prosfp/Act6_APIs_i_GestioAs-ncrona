@@ -306,7 +306,7 @@ Una funció que retorna una Promesa que es resol amb un objecte que conté els s
 
 **Exemple de l'objecte retornat una vegada s'ha resolt la Promesa:**
 
-````json
+```javascript
 {
   "episodeID": 4,
   "name": "A New Hope",
@@ -331,10 +331,7 @@ Una funció que retorna una Promesa que es resol amb un objecte que conté els s
     { "name": "Raymus Antilles", "homeworld": "Alderaan" }
   ]
 }
-
-- `episodeID: Number`, conjté el camp episode_id.
-- `name: String` indicant el títol de la pel·lícula.
-- `characters: Un array que conté informació sobre els personatges que surten a la pel·lícula.
+```
 
 ### Exercici 7
 
@@ -377,4 +374,3 @@ explicar el perquè d’aquestes comprovacions.
 En la propera pràctica practicarem amb el DOM per mostrar totes aquestes dades a l'usuari amb una interfície gràfica com aquesta:
 
 ![StarWars API](https://imgur.com/yRyyayi.png)
-````
