@@ -27,7 +27,7 @@ starwars-api-workspace
     └── swapi.test.js
 ```
 
-Treballem amb Eslint, Jest i Parcel. Eslint i Jest ja els hem vist en projectes anteriors. Parcel és un _bundler_ que ens permetrà treballar amb mòduls. A més a més, Parcelo substitueix algunes de les característiques de Webpack i Babel que requeríem per transpilar el nostre codi i fer-lo compatible amb els navegadors desitjats. Ara això ho podem fer a través de la configuració de Parcel.
+Treballem amb Eslint, Jest i Parcel. Eslint i Jest ja els hem vist en projectes anteriors. Parcel és un _bundler_ que ens permetrà treballar amb mòduls. A més a més, Parcel substitueix algunes de les característiques de Webpack i Babel que requeríem per transpilar el nostre codi i fer-lo compatible amb els navegadors desitjats. Ara això ho podem fer a través de la configuració de Parcel.
 
 ### `src` Folder
 
@@ -41,9 +41,9 @@ Farem servir la carpeta `src` per desar tot el codi del nostre projecte. Aquesta
 
 ### Configuration Files
 
-- `.babelrc`: The configuration file for Babel.
-- `.eslintrc.json`: The configuration file for ESLint.
-- `package.json`: The configuration file for npm.
+- `.babelrc`: El fitxer de configuració de Babel.
+- `.eslintrc.json`: El fitxer de configuració de esLint.
+- `package.json`: El fitxer de configuració per npm.
 
 ## :pencil: Previ!
 
