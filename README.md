@@ -4,9 +4,9 @@ Aquest projecte te la finalitat de començar a treballar amb APIs i fer peticion
 
 ## :books: Objectius
 
-En aquest projecte treballem amb un servidor extern, per tant no tenim un fitxer JSON amb la informació que necessitem. Necessitem fer peticions a un servidor extern. En aquest cas farem servir l'API de StarWars SWAPI. Aquesta API ens permet fer peticions a diferents **endpoints** per tal de rebre la informació que necessitem. Per exemple, si volem rebre la informació de tots els personatges de StarWars, farem una petició a l'endpoint `https://swapi.dev/api/people/`. Si volem rebre la informació d'un personatge en concret, farem una petició a l'endpoint `https://swapi.dev/api/people/1/`. Com podeu veure, a l'endpoint hi afegim un número que correspon a l'ID del personatge que volem rebre. Això ens permet fer peticions a un servidor extern i rebre la informació que necessitem.
+En aquest projecte treballem amb un servidor extern, per tant no tenim un fitxer JSON amb la informació que necessitem. Necessitem fer peticions a un servidor extern. En aquest cas farem servir l'API de StarWars SWAPI. Aquesta API ens permet fer peticions a diferents **endpoints** per tal de rebre la informació que necessitem. Per exemple, si volem rebre la informació de tots els personatges de StarWars, farem una petició a l'endpoint `https://swapi.info/api/people/`. Si volem rebre la informació d'un personatge en concret, farem una petició a l'endpoint `https://swapi.info/api/people/1/`. Com podeu veure, a l'endpoint hi afegim un número que correspon a l'ID del personatge que volem rebre. Això ens permet fer peticions a un servidor extern i rebre la informació que necessitem.
 
-Teniu la documentació de l'API a [https://swapi.dev/documentation](https://swapi.dev/documentation).
+Teniu la documentació de l'API a [https://swapi.info](https://swapi.info).
 
 ## Project Structure
 
@@ -60,10 +60,10 @@ En aquesta pràctica treballarem amb la notació ES Modules. Això vol dir que e
 
 D'altra banda comencem a fer ús del Fetch. Hem après el concepte de les promeses i la manera moderna de gestionar-la a través **d'async/await**.
 
-El Fetch és en definitiva una petició (normalment un HTTP GET) que ens permet fer peticions a un servidor extern i esperar la resposta de manera similar a com ho farien les _Promise_. De fet ens retorna una promesa que es resol amb la resposta del servidor. Per exemple, si volem fer una petició a l'endpoint `https://swapi.dev/api/people/` farem:
+El Fetch és en definitiva una petició (normalment un HTTP GET) que ens permet fer peticions a un servidor extern i esperar la resposta de manera similar a com ho farien les _Promise_. De fet ens retorna una promesa que es resol amb la resposta del servidor. Per exemple, si volem fer una petició a l'endpoint `https://swapi.info/api/people/` farem:
 
 ```js
-fetch('https://swapi.dev/api/people/')
+fetch('https://swapi.info/api/people/')
   .then((response) => response.json())
   .then((data) => console.log(data));
 ```
@@ -72,7 +72,7 @@ També podem gestionar gestionar el fetch a través d'**async/await**, per exemp
 
 ```js
 const getPeople = async () => {
-  const response = await fetch('https://swapi.dev/api/people/');
+  const response = await fetch('https://swapi.info/api/people/');
   const data = await response.json();
   console.log(data);
 };
@@ -90,7 +90,7 @@ El mètode .json() retorna una promesa que en cas d'èxit acabarà sent un parsi
 
 Per utilitzar l'API us recomanem fer ús de la consola que es troba a la pàgina d'inici de l'API:
 
-- https://swapi.dev/
+- https://swapi.info/
 
 S'hi poden realitzar consultes per verificar les dades obtingudes en el desenvolupament. Alhora, hi ha eines més completes, com ara Postman, que permeten emmagatzemar consultes, exportar dades i treballar amb les API de forma més completa, però el seu coneixement no és objecte d'aquesta PAC.
 
@@ -221,11 +221,11 @@ Implementar una funció `getMovieInfo(id: string)` que donat un id d'una pel·l�
 ```javascript
 {
  characters: [
- "http://swapi.dev/api/people/1/",
- "http://swapi.dev/api/people/2/",
- "http://swapi.dev/api/people/3/",
- "http://swapi.dev/api/people/4/",
- "http://swapi.dev/api/people/5/",
+ "http://https://swapi.info/api/people/1/",
+ "http://https://swapi.info/api/people/2/",
+ "http://https://swapi.info/api/people/3/",
+ "http://swapi.info/api/people/4/",
+ "http://swapi.info/api/people/5/",
  ...
  ],
  episodeID: 4,
@@ -255,9 +255,9 @@ Implementar una funció `getMovieCharacters(id: string)` que donat un id d'una p
 ```javascript
 const getValues = async () => {
   const values = await Promise.all([
-    fetch('https://swapi.dev/api/people/1/'),
-    fetch('https://swapi.dev/api/people/2/'),
-    fetch('https://swapi.dev/api/people/3/'),
+    fetch('https://swapi.info/api/people/1/'),
+    fetch('https://swapi.info/api/people/2/'),
+    fetch('https://swapi.info/api/people/3/'),
   ]);
   console.log(values);
 };
