@@ -1,43 +1,77 @@
-const BASE_URL = 'https://swapi.dev/api/';
+const BASE_URL = 'https://swapi.info/api/';
 
-export function getMovieCount() {
+function getMovieCount() {
   return fetch(`${BASE_URL}films/`)
     .then((res) => res.json())
-    .then((json) => json.count);
+    .then((json) => json.length)
+    .catch((error) => console.error(error));
 }
 
-// export async function getMovieCount() {
-//   const res = await fetch('https://swapi.dev/api/films/');
-//   const data = await res.json();
-//   return data.count;
-// }
+async function listMovies() {
+  try {
+    const res = await fetch(`${BASE_URL}films/`);
+    if (!res.ok) {
+      throw new Error('API request failed');
+    }
+    const data = await res.json();
+    const movies = data.map((movie) => ({
+      // en aquest cas millor literal que return {}
+      name: movie.title,
+      director: movie.director,
+      release: movie.release_date,
+      episodeID: movie.episode_id,
+    }));
+    return movies;
+  } catch (error) {
+    console.error('Error: ', error);
+  }
+}
 
-// Una bona opció si teniu ja prou apresa la lògica, és fer una funció genèrica per fer les requests a la API
+async function listMoviesSorted() {
+  const movies = await listMovies();
+  return movies.sort(_compareByName);
+}
 
-// export async function getSwapiData(path) {
-//   const res = await fetch(`${BASE_URL}${path}`);
-//   const data = await res.json();
-//   return data;
-// }
+async function listEvenMoviesSorted() {
+  const movies = await listMovies();
+  return movies
+    .filter((movie) => movie.episodeID % 2 === 0)
+    .sort(_compareByEpisodeId);
+}
 
-// export async function getMovieCount() {
-//   const data = await getSwapiData('films/');
-//   return data.count;
-// }
+async function getMovieInfo(id) {
+  return fetch(`${BASE_URL}films/${id}/`)
+    .then((res) => res.json())
+    .then((movie) => ({
+      name: movie.title,
+      episodeID: movie.episode_id,
+      characters: movie.characters,
+    }))
+    .catch((error) => console.error(error));
+}
 
-// A vegades veureu també la lògica amb response.ok:
-// export async function getSwapiData(path) {
-//   const res = await fetch(`${BASE_URL}${path}`);
-//   if (res.ok) {
-//     const data = await res.json();
-//     return data;
-//   }
-//   throw new Error('Something went wrong');
-// }
+// Funcions Auxiliars
 
+function _compareByName(a, b) {
+  if (a.name > b.name) {
+    return 1;
+  }
+  if (a.name < b.name) {
+    return -1;
+  }
+  // a must be equal to b
+  return 0;
+}
+
+function _compareByEpisodeId(a, b) {
+  return a.episodeID - b.episodeID;
+}
 // Aneu afegint les functions a exportar aquí
-const swapi = {
-  getMovieCount,
-};
 
-export default swapi;
+export default {
+  getMovieCount,
+  listMovies,
+  listMoviesSorted,
+  listEvenMoviesSorted,
+  getMovieInfo,
+};

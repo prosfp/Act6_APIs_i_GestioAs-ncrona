@@ -181,6 +181,11 @@ Implementar una funció anomenada `listMoviesSorted()` que retorna una promesa q
 ];
 ```
 
+Fes un cop d'ull a la següent documentació per a entendre com fer servir el mètode `sort` d'un array d'objectes:
+
+- [Array.prototype.sort()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+
+
 ### Exercici 4
 
 Implementar una funció anomenada `listEvenMoviesSorted()` que retorna una promesa que es resol amb un array d'objectes Film ordenats per episodeID de forma ascendent. Només s'han de retornar els episodis parells.
