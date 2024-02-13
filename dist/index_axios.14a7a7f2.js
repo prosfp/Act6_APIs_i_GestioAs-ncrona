@@ -617,9 +617,6 @@ function getMovieCount() {
 function getMovieCountAxios() {
     return axios.get(`${BASE_URL}films/`).then((res)=>console.log(res.data));
 }
-// const getMovieCountAxios = () => {
-//   return axios.get(`${BASE_URL}/films/`).then((res) => console.log(res.data));
-// };
 // With Axios, you can use axios.get(url) instead of fetch(url). The response
 // object from Axios already contains parsed JSON under res.data, so you don't
 // need to call res.json(). Error handling can be done in a catch block, which
