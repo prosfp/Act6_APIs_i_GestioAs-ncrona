@@ -2,9 +2,16 @@
 
 const BASE_URL = 'https://swapi.info/api/';
 
-const getMovieCountAxios = () => {
-  return axios.get(`${BASE_URL}/films/`).then((res) => console.log(res));
-};
+function getMovieCount() {
+  return fetch(`${BASE_URL}films/`)
+    .then((res) => res.json())
+    .then((json) => json.length)
+    .catch((error) => console.error(error));
+}
+
+function getMovieCountAxios() {
+  return axios.get(`${BASE_URL}films/`).then((res) => console.log(res.data));
+}
 
 // With Axios, you can use axios.get(url) instead of fetch(url). The response
 // object from Axios already contains parsed JSON under res.data, so you don't
@@ -13,23 +20,31 @@ const getMovieCountAxios = () => {
 // outside of the 2xx range. With fetch, network errors are rejected, but
 // incorrect status codes still resolve and need to be handled separately.
 
-const githubExample = async () => {
-  const token =
-    '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';
-  try {
-    const response = await axios.get('https://api.github.com/user', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    console.log(response.data.avatar_url);
-    return response.data.avatar_url;
-  } catch (error) {
-    console.error('Error: ', error);
-  }
-};
+// const githubExample = async () => {
+//   const token = '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';
+//   try {
+//     const response = await axios.get('https://api.github.com/user', {
+//       headers: {
+//         Authorization: `Bearer ${token}`,
+//       },
+//     });
+//     console.log(response.data);
+//     console.log(response.data.avatar_url);
+//     return response.data.avatar_url;
+//   } catch (error) {
+//     console.error('Error: ', error);
+//   }
+// };
 
-export default {
-  getMovieCountAxios,
-  githubExample,
-};
+// const getRepos = async (username) => {
+//   try {
+//     const response = await axios.get(
+//       `https://api.github.com/users/${username}/repos`
+//     );
+//     return response.data;
+//   } catch (error) {
+//     console.error('Error: ', error);
+//   }
+// };
+
+export default { getMovieCountAxios };

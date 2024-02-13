@@ -185,7 +185,6 @@ Fes un cop d'ull a la següent documentació per a entendre com fer servir el m�
 
 - [Array.prototype.sort()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
 
-
 ### Exercici 4
 
 Implementar una funció anomenada `listEvenMoviesSorted()` que retorna una promesa que es resol amb un array d'objectes Film ordenats per episodeID de forma ascendent. Només s'han de retornar els episodis parells.
@@ -379,3 +378,7 @@ explicar el perquè d’aquestes comprovacions.
 En la propera pràctica practicarem amb el DOM per mostrar totes aquestes dades a l'usuari amb una interfície gràfica com aquesta:
 
 ![StarWars API](https://imgur.com/yRyyayi.png)
+
+### Axios
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

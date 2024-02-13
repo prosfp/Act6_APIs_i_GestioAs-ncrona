@@ -95,6 +95,44 @@ async function getMovieCharactersAndHomeworlds(id) {
   }
 }
 
+// Exercici 7
+
+async function createMovie(id) {
+  const movie = await getMovieInfo(id);
+  return new Movie(movie.name, movie.characters);
+}
+
+export class Movie {
+  // camps privats
+  #characterUrls = [];
+  constructor(name, characterUrls) {
+    this.name = name;
+    this.#characterUrls = characterUrls;
+  }
+
+  async getCharacters() {
+    // Tenim la funció getCharacterName que ens retorna el nom del personatge en base al seu endpoint/url
+    // I si passem aquesta funció com a Callback?
+    return await Promise.all(this.#characterUrls.map(getCharacterName));
+  }
+
+  async getHomeworlds() {
+    const namesAndHomeworlds = await Promise.all(
+      this.#characterUrls.map(_getCharacterInfoAndHomeworld)
+    );
+    const homeworlds = namesAndHomeworlds.map((item) => item.homeworld);
+    const uniqueHomeworlds = new Set(homeworlds);
+    return [...uniqueHomeworlds];
+  }
+
+  async getHomeworldsReverse() {
+    const homeworlds = await this.getHomeworlds();
+    return homeworlds.sort().reverse();
+  }
+}
+
+// Funcions Auxiliars
+
 async function _getCharactersNamesAndHomeworlds(movie) {
   const charactersWithHomeWorlds = await Promise.all(
     movie.characters.map(_getCharacterInfoAndHomeworld)
@@ -112,7 +150,6 @@ async function _getCharacterInfoAndHomeworld(url) {
     };
 
     character.homeworld = await _getHomeWorldName(character.homeworld);
-    console.log(character);
     return character;
   } catch (error) {
     console.error('Error:', error);
@@ -128,8 +165,6 @@ async function _getHomeWorldName(url) {
     console.error('Error:', error);
   }
 }
-
-// Funcions Auxiliars
 
 function _compareByName(a, b) {
   if (a.name > b.name) {
@@ -156,4 +191,5 @@ export default {
   getCharacterName,
   getMovieCharacters,
   getMovieCharactersAndHomeworlds,
+  createMovie,
 };
