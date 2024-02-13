@@ -1,5 +1,7 @@
 const BASE_URL = 'https://swapi.info/api/';
 
+// Exercici 1
+
 function getMovieCount() {
   return fetch(`${BASE_URL}films/`)
     .then((res) => res.json())
@@ -7,6 +9,7 @@ function getMovieCount() {
     .catch((error) => console.error(error));
 }
 
+// Exercici 2
 async function listMovies() {
   try {
     const res = await fetch(`${BASE_URL}films/`);
@@ -27,11 +30,13 @@ async function listMovies() {
   }
 }
 
+// Exercici 3
 async function listMoviesSorted() {
   const movies = await listMovies();
   return movies.sort(_compareByName);
 }
 
+// Exercici 4
 async function listEvenMoviesSorted() {
   const movies = await listMovies();
   return movies
@@ -39,6 +44,7 @@ async function listEvenMoviesSorted() {
     .sort(_compareByEpisodeId);
 }
 
+// Exercici 5.1
 async function getMovieInfo(id) {
   return fetch(`${BASE_URL}films/${id}/`)
     .then((res) => res.json())
@@ -50,6 +56,7 @@ async function getMovieInfo(id) {
     .catch((error) => console.error(error));
 }
 
+// Exercici 5.2
 async function getCharacterName(url) {
   try {
     const res = await fetch(url);
@@ -83,7 +90,6 @@ async function getMovieCharacters(id) {
 }
 
 // Exercici 6
-
 async function getMovieCharactersAndHomeworlds(id) {
   //obtinc novament la info general de la peli
   try {
@@ -96,12 +102,12 @@ async function getMovieCharactersAndHomeworlds(id) {
 }
 
 // Exercici 7
-
 async function createMovie(id) {
   const movie = await getMovieInfo(id);
   return new Movie(movie.name, movie.characters);
 }
 
+// Exercici 7
 export class Movie {
   // camps privats
   #characterUrls = [];
