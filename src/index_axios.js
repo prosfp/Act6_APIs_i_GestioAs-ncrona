@@ -6,8 +6,10 @@ import swapi_axios from './swapi_axios.js';
 
 async function main() {
   try {
-    const prova = await swapi.getMovieCharactersAndHomeworlds('2');
-    console.log(prova);
+    const prova = await swapi_axios.githubExample();
+    document.getElementById('avatar').src = prova;
+    const numberOfMovies = await swapi.getMovieInfo(3);
+    console.log(numberOfMovies);
   } catch (error) {
     console.error(error);
   }

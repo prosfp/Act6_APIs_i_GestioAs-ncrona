@@ -50,6 +50,85 @@ async function getMovieInfo(id) {
     .catch((error) => console.error(error));
 }
 
+async function getCharacterName(url) {
+  try {
+    const res = await fetch(url);
+    const character = await res.json();
+    return character.name;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+// Exercici 5.3
+
+async function getMovieCharacters(id) {
+  try {
+    const movie = await getMovieInfo(id);
+    //movie.characters = await movie.characters.map(getCharacterName);
+    movie.characters = await Promise.allSettled(
+      movie.characters.map(getCharacterName)
+    );
+    movie.characters = movie.characters.map((character) => {
+      if (character.status === 'fulfilled') {
+        return character.value;
+      } else {
+        return null;
+      }
+    });
+    return movie;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+// Exercici 6
+
+async function getMovieCharactersAndHomeworlds(id) {
+  //obtinc novament la info general de la peli
+  try {
+    const movie = await getMovieInfo(id);
+    movie.characters = await _getCharactersNamesAndHomeworlds(movie);
+    return movie;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+async function _getCharactersNamesAndHomeworlds(movie) {
+  const charactersWithHomeWorlds = await Promise.all(
+    movie.characters.map(_getCharacterInfoAndHomeworld)
+  );
+  return charactersWithHomeWorlds;
+}
+
+async function _getCharacterInfoAndHomeworld(url) {
+  try {
+    const data = await fetch(url);
+    const res = await data.json();
+    const character = {
+      name: res.name,
+      homeworld: res.homeworld,
+    };
+
+    character.homeworld = await _getHomeWorldName(character.homeworld);
+    console.log(character);
+    return character;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+async function _getHomeWorldName(url) {
+  try {
+    const data = await fetch(url);
+    const res = await data.json();
+    return res.name;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
 // Funcions Auxiliars
 
 function _compareByName(a, b) {
@@ -74,4 +153,7 @@ export default {
   listMoviesSorted,
   listEvenMoviesSorted,
   getMovieInfo,
+  getCharacterName,
+  getMovieCharacters,
+  getMovieCharactersAndHomeworlds,
 };
